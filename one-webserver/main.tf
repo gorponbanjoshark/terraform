@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-west-1"
 }
 
 resource "aws_instance" "example" {
@@ -20,7 +20,7 @@ resource "aws_instance" "example" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, World" > index.html
+              echo "Hello, World test" > index.html
               nohup busybox httpd -f -p 8080 &
               EOF
 
