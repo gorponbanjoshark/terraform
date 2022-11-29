@@ -1,0 +1,13 @@
+
+## some handy aliases for ~/.bashrc
+alias tf='terraform'
+alias rs='. ~/.bashrc'
+#
+## assumes you’re just doing training and nothing super important
+function tfa {
+    terraform $@ --auto-approve
+}
+
+eval "$(starship init bash)"
+
+[ -f /aws/aws_init ] && . /aws/aws_init
