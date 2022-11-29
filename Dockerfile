@@ -15,3 +15,6 @@ RUN /usr/bin/dnf copr enable atim/starship -y
 RUN /usr/bin/dnf install starship -y
 RUN echo '. /root/.bash_extra' >> /root/.bashrc
 
+
+# docker build -t local/terraform .
+# docker run -i -t -v ~/workspace:/ws:z -v ~/aws:/aws:z local/terraform bash
