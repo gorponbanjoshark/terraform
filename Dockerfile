@@ -1,6 +1,6 @@
 FROM fedora:latest
 
-RUN /usr/bin/yum install yum-utils dnf-plugins-core git vim-enhanced -y
+RUN /usr/bin/yum install yum-utils dnf-plugins-core git vim-enhanced docker -y
 RUN /usr/bin/yum-config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 RUN /usr/bin/dnf install terraform -y
 
@@ -16,4 +16,4 @@ RUN echo '. /root/.bash_extra' >> /root/.bashrc
 
 
 # docker build -t local/terraform .
-# docker run -i -t -v ~/workspace:/ws:z -v ~/aws:/aws:z local/terraform bash
+#docker run -i -t -v ~/workspace:/ws:z -v ~/aws:/aws:z -v /var/run/docker.sock:/var/run/docker.sock:z local/terraform bash
