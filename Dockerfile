@@ -1,6 +1,5 @@
 FROM fedora:latest
 
-COPY dockerfiles/.bash_extra /root/.bash_extra
 COPY dockerfiles/google-cloud-sdk.repo /etc/yum.repos.d/google-cloud-sdk.repo
 
 RUN /usr/bin/dnf install yum-utils dnf-plugins-core git vim-enhanced docker -y
@@ -13,6 +12,8 @@ RUN cd ~/.vim/pack/jvirtanen/start && git clone https://github.com/jvirtanen/vim
 RUN /usr/bin/dnf copr enable atim/starship -y
 RUN /usr/bin/dnf install starship -y
 RUN echo '. /root/.bash_extra' >> /root/.bashrc
+
+COPY dockerfiles/.bash_extra /root/.bash_extra
 
 
 # docker build -t local/terraform .
