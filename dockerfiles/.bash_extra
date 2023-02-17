@@ -11,3 +11,4 @@ function tfa {
 eval "$(starship init bash)"
 
 [ -f /aws/aws_init ] && . /aws/aws_init
+[ -f /aws/gcp_settings ] && . /aws/gcp_settings
