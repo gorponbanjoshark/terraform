@@ -1,14 +1,14 @@
 FROM fedora:latest
 
-RUN /usr/bin/yum install yum-utils dnf-plugins-core git vim-enhanced docker -y
+COPY dockerfiles/.bash_extra /root/.bash_extra
+COPY dockerfiles/google-cloud-sdk.repo /etc/yum.repos.d/google-cloud-sdk.repo
+
+RUN /usr/bin/dnf install yum-utils dnf-plugins-core git vim-enhanced docker -y
 RUN /usr/bin/yum-config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-RUN /usr/bin/dnf install terraform -y
+RUN /usr/bin/dnf install terraform google-cloud-sdk -y
 
 RUN mkdir -p ~/.vim/pack/jvirtanen/start
 RUN cd ~/.vim/pack/jvirtanen/start && git clone https://github.com/jvirtanen/vim-hcl.git
-
-
-COPY dockerfiles/.bash_extra /root/.bash_extra
 
 RUN /usr/bin/dnf copr enable atim/starship -y
 RUN /usr/bin/dnf install starship -y
