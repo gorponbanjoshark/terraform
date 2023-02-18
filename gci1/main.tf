@@ -5,6 +5,6 @@ provider "google" {
   zone = var.zone
 }
 
-resource "google_compute_network" "vpc_notwork" {
-  name = "terraform-network"
+resource "google_compute_network" "vpc-notwork" {
+  name = "cobbler-build-nets"
 }
